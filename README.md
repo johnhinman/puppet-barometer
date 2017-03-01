@@ -14,7 +14,7 @@ barometer
 Overview
 --------
 
-The barometer module is a part of [OpenStack](https://www.openstack.org), an effort by the OpenStack infrastructure team to provide continuous integration testing and code review for OpenStack and OpenStack community projects not part of the core software.  The module its self is used to flexibly configure and manage the FIXME service for OpenStack.
+The barometer module is a part of [OpenStack](https://www.openstack.org), an effort by the OpenStack infrastructure team to provide continuous integration testing and code review for OpenStack and OpenStack community projects not part of the core software.  The module its self is used to flexibly configure and manage the barometer service for OpenStack.
 
 Module Description
 ------------------
@@ -26,7 +26,7 @@ Setup
 
 **What the barometer module affects**
 
-* [Barometer](https://wiki.openstack.org/wiki/Barometer), the FIXME service for OpenStack.
+* [Barometer](https://wiki.opnfv.org/display/fastpath/Barometer+Home), the barometer service for OpenStack.
 
 ### Installing barometer
 
