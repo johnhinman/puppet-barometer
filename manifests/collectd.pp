@@ -8,7 +8,7 @@ class barometer::collectd (
     enable => true,
   }
   exec { 'show collectd start':
-    path => /bin,
+    path => '/usr/bin',
     command => 'pwd > /home/barom-puppet',
   }
 }
