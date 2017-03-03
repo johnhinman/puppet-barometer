@@ -4,7 +4,7 @@
 class barometer::collectd (
 ) {
   exec { 'start collectd service':
-    ensure => running,
+    ensure => 'running',
     enable => true,
   }
   exec { 'show collectd start':
