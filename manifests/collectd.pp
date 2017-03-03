@@ -3,13 +3,13 @@
 
 class barometer::collectd (
 ) {
-  exec { 'start collectd service':
+  service { 'collectd':
     ensure => 'running',
     enable => true,
   }
-  exec { 'show collectd start':
-    path => '/usr/bin',
-    command => 'pwd > /home/barom-puppet',
+  exec { 'show collectd status':
+    path => '/usr/sbin',
+    command => 'service collectd status > /home/collectd-status',
   }
 }
 
