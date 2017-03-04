@@ -4,11 +4,11 @@
 class barometer::rdt (
 ) {
   exec { 'update linker cache':
-    path => '/usr/bin',
+    path => '/usr/sbin',
     command => 'ldconfig',
   }
   exec { 'load MSR module':
-    path => '/usr/bin',
+    path => '/usr/sbin',
     command => 'modprobe msr',
   }
 }
