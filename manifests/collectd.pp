@@ -7,11 +7,11 @@ class barometer::collectd (
   $password   = hiera(ceilometer::keystone::authtoken::password),
 ) {
   exec { 'show ceilometer creds':
-    path => /usr/sbin',
+    path => /usr/bin',
     command => 'echo "$public_url $username $password" > /home/collectd-creds',
   exec { 'collectd-ceilometer-plugin conf':
-    path => /usr/sbin',
-    command => 'bash /opt/collectd/collectd-conf.sh public_url, username, password > /home/collectd-conf-status',
+    path => /usr/bin',
+    command => 'bash /opt/collectd-conf.sh public_url, username, password > /home/collectd-conf-status',
   }
   service { 'collectd':
     ensure => 'running',
