@@ -22,16 +22,16 @@ describe 'barometer::keystone::auth' do
         :roles   => ['admin']
       )}
 
-      it { is_expected.to contain_keystone_service('barometer::FIXME').with(
+      it { is_expected.to contain_keystone_service('barometer::nfv-orchestration').with(
         :ensure      => 'present',
-        :description => 'barometer FIXME Service'
+        :description => 'barometer NFV orchestration Service'
       ) }
 
-      it { is_expected.to contain_keystone_endpoint('RegionOne/barometer::FIXME').with(
+      it { is_expected.to contain_keystone_endpoint('RegionOne/barometer::nfv-orchestration').with(
         :ensure       => 'present',
-        :public_url   => 'http://127.0.0.1:FIXME',
-        :admin_url    => 'http://127.0.0.1:FIXME',
-        :internal_url => 'http://127.0.0.1:FIXME',
+        :public_url   => 'http://127.0.0.1:9890',
+        :admin_url    => 'http://127.0.0.1:9890',
+        :internal_url => 'http://127.0.0.1:9890',
       ) }
     end
 
@@ -43,7 +43,7 @@ describe 'barometer::keystone::auth' do
           :admin_url    => 'http://10.10.10.12:81', }
       end
 
-      it { is_expected.to contain_keystone_endpoint('RegionOne/barometer::FIXME').with(
+      it { is_expected.to contain_keystone_endpoint('RegionOne/barometer::nfv-orchestration').with(
         :ensure       => 'present',
         :public_url   => 'https://10.10.10.10:80',
         :internal_url => 'http://10.10.10.11:81',
@@ -59,8 +59,8 @@ describe 'barometer::keystone::auth' do
 
       it { is_expected.to contain_keystone_user('barometery') }
       it { is_expected.to contain_keystone_user_role('barometery@services') }
-      it { is_expected.to contain_keystone_service('barometer::FIXME') }
-      it { is_expected.to contain_keystone_endpoint('RegionOne/barometer::FIXME') }
+      it { is_expected.to contain_keystone_service('barometer::nfv-orchestration') }
+      it { is_expected.to contain_keystone_endpoint('RegionOne/barometer::nfv-orchestration') }
     end
 
     context 'when overriding service name' do
@@ -72,8 +72,8 @@ describe 'barometer::keystone::auth' do
 
       it { is_expected.to contain_keystone_user('barometer') }
       it { is_expected.to contain_keystone_user_role('barometer@services') }
-      it { is_expected.to contain_keystone_service('barometer_service::FIXME') }
-      it { is_expected.to contain_keystone_endpoint('RegionOne/barometer_service::FIXME') }
+      it { is_expected.to contain_keystone_service('barometer_service::nfv-orchestration') }
+      it { is_expected.to contain_keystone_endpoint('RegionOne/barometer_service::nfv-orchestration') }
     end
 
     context 'when disabling user configuration' do
@@ -87,9 +87,9 @@ describe 'barometer::keystone::auth' do
 
       it { is_expected.not_to contain_keystone_user('barometer') }
       it { is_expected.to contain_keystone_user_role('barometer@services') }
-      it { is_expected.to contain_keystone_service('barometer::FIXME').with(
+      it { is_expected.to contain_keystone_service('barometer::nfv-orchestration').with(
         :ensure      => 'present',
-        :description => 'barometer FIXME Service'
+        :description => 'barometer NFV orchestration Service'
       ) }
 
     end
@@ -106,9 +106,9 @@ describe 'barometer::keystone::auth' do
 
       it { is_expected.not_to contain_keystone_user('barometer') }
       it { is_expected.not_to contain_keystone_user_role('barometer@services') }
-      it { is_expected.to contain_keystone_service('barometer::FIXME').with(
+      it { is_expected.to contain_keystone_service('barometer::nfv-orchestration').with(
         :ensure      => 'present',
-        :description => 'barometer FIXME Service'
+        :description => 'barometer NFV orchestration Service'
       ) }
 
     end
