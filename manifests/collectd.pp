@@ -9,6 +9,7 @@ class barometer::collectd (
   exec { 'show ceilometer creds':
     path => '/usr/bin',
     command => 'echo "$public_url $username $password" > /home/collectd-creds',
+  }
   exec { 'collectd-ceilometer-plugin conf':
     path => '/usr/bin',
     command => 'bash /opt/collectd-conf.sh public_url, username, password > /home/collectd-conf-status',
