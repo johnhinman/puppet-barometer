@@ -2,9 +2,9 @@
 # Collectd service start 
 
 class barometer::collectd (
-  $public_url,
-  $ceilo_username,
-  $ceilo_password,
+  $public_url = barometer::collectd::public_url,
+  $ceilo_username = barometer::collectd::ceilo_username,
+  $ceilo_password = barometer::collectd::ceilo_password,
 ) {
   exec { 'show ceilometer creds':
     path => '/usr/bin',
