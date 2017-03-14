@@ -4,7 +4,7 @@
 class barometer::collectd (
   $public_url,
   $ceilo_username   = 'ceilometer',
-  $ceilo_password   = 'ceilometer-password,
+  $ceilo_password   = 'ceilometer-password',
 ) {
   exec { 'show ceilometer creds':
     path => '/usr/bin',
