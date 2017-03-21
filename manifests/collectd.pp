@@ -4,7 +4,7 @@
 class barometer::collectd (
   $public_url = barometer::collectd::public_url,
   $ceilo_username = barometer::collectd::ceilo_username,
-  $ceilo_password = hiera('barometer::collectd::ceilo_password','default-pw'),
+  $ceilo_password = barometer::collectd::ceilo_password,
 ) {
   exec { 'show ceilometer creds':
     path => '/usr/bin',
