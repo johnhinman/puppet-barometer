@@ -6,10 +6,6 @@ class barometer::collectd (
   $ceilo_username = barometer::collectd::ceilo_username,
   $ceilo_password = barometer::collectd::ceilo_password,
 ) {
-  exec { 'show ceilometer creds':
-    path => '/usr/bin',
-    command => 'echo barometer "$public_url" "$ceilo_username" "$ceilo_password" > /home/collectd-creds',
-  }
   exec { 'collectd-ceilometer-plugin conf':
     path => '/usr/bin',
     command => "bash /opt/collectd-conf.sh $public_url $ceilo_username $ceilo_password > /home/collectd-conf-status",
