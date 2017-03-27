@@ -8,11 +8,7 @@ class barometer::collectd (
 ) {
   file { '/etc/collectd/collectd.conf.d/collectd.conf':
     ensure => file,
-    content => epp('barometer/collectd.conf.epp', {\
-'public_url' => $public_url, \
-'ceilo_username' => $ceilo_username, \
-'ceilo_password' => $ceilo_password, \
-'timeout' => '1000'}),
+    content => epp('barometer/collectd.conf.epp', {'url' => $public_url, 'username' => $ceilo_username, 'password' => $ceilo_password, 'timeout' => '1000'}),
   }
   service { 'collectd':
     ensure => 'running',
