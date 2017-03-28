@@ -8,7 +8,7 @@ class barometer::collectd (
 ) {
   file { '/etc/collectd/collectd.conf.d/collectd.conf':
     ensure => file,
-    content => template('barometer/collectd.conf.epp'), 
+    content => template('barometer/collectd.conf.erb'), 
   }
   service { 'collectd':
     ensure => 'running',
