@@ -17,18 +17,18 @@
         BATCH_SIZE 3
 
         # Service endpoint addresses
-        OS_AUTH_URL "<%=$url-%>"
+        OS_AUTH_URL "<%=@public_url-%>"
 
         # Ceilometer address
         #CEILOMETER_ENDPOINT
         CEILOMETER_URL_TYPE "internalURL"
 
         # Ceilometer timeout in ms
-        CEILOMETER_TIMEOUT "<%=$timeout-%>"
+        CEILOMETER_TIMEOUT "1000"
 
         # # Ceilometer user creds
-        OS_USERNAME "<%=username-%>"
-        OS_PASSWORD "<%=password-%>"
+        OS_USERNAME "<%=@ceilo_username-%>"
+        OS_PASSWORD "<%=@ceilo_password-%>"
         OS_TENANT_NAME "services"
 
     </Module>
