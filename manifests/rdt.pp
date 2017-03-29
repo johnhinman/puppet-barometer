@@ -1,6 +1,6 @@
 # == Class: ::barometer::rdt
 # RDT preparation: ldconfig and load msr module
-
+# Create .conf
 class barometer::rdt (
 ) {
   exec { 'update linker cache':
