@@ -10,19 +10,19 @@ class barometer::collectd (
     ensure => file,
     content => template('barometer/collectd.conf.erb'), 
   }
-  file { '/etc/collectd/collectd.conf.d/hugepages.conf'),
+  file { '/etc/collectd/collectd.conf.d/hugepages.conf':
     ensure => file,
     content => template('barometer/hugepages.conf.erb'),
   }
-  file { '/etc/collectd/collectd.conf.d/mcelog.conf'),
+  file { '/etc/collectd/collectd.conf.d/mcelog.conf':
     ensure => file,
     content => template('barometer/mcelog.conf.erb'),
   }
-  file { '/etc/mcelog/mcelog.conf'),
+  file { '/etc/mcelog/mcelog.conf':
     ensure => file,
     content => template('barometer/mcelog-client.conf.erb'),
   }
-  file { '/etc/collectd/collectd.conf.d/ovs.conf'),
+  file { '/etc/collectd/collectd.conf.d/ovs.conf':
     ensure => file,
     content => template('barometer/ovs.conf.erb'),
   }
