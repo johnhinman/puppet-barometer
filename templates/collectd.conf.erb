@@ -3,7 +3,7 @@
 </LoadPlugin>
 
 <Plugin python>
-    ModulePath "/etc/collectd/collectd-ceilometer-plugin"
+    ModulePath "/opt/collectd-ceilometer/collectd-ceilometer-plugin"
     LogTraces true
     Interactive false
     Import "collectd_ceilometer.plugin"
@@ -27,8 +27,8 @@
         CEILOMETER_TIMEOUT "1000"
 
         # # Ceilometer user creds
-        OS_USERNAME "<%=@ceilo_username-%>"
-        OS_PASSWORD "<%=@ceilo_password-%>"
+        OS_USERNAME "<%=@collectd_username-%>"
+        OS_PASSWORD "<%=@collectd_password-%>"
         OS_TENANT_NAME "services"
 
     </Module>
