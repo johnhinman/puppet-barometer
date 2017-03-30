@@ -3,8 +3,8 @@
 
 class barometer::collectd (
   $public_url = barometer::collectd::public_url,
-  $ceilo_username = barometer::collectd::ceilo_username,
-  $ceilo_password = barometer::collectd::ceilo_password,
+  $collectd_username = barometer::collectd::collectd_username,
+  $collectd_password = barometer::collectd::collectd_password,
 ) {
   file { '/etc/collectd/collectd.conf.d/collectd-ceilometer-plugin.conf':
     ensure => file,
@@ -30,6 +30,7 @@ class barometer::collectd (
     ensure => 'running',
     enable => true,
   }
+  # debug only, remove this
   exec { 'show collectd status':
     path => '/usr/sbin',
     command => 'service collectd status > /etc/collectd/collectd-status',
