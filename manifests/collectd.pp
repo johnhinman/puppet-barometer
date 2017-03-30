@@ -6,7 +6,7 @@ class barometer::collectd (
   $ceilo_username = barometer::collectd::ceilo_username,
   $ceilo_password = barometer::collectd::ceilo_password,
 ) {
-  file { '/etc/collectd/collectd.conf.d/collectd.conf':
+  file { '/etc/collectd/collectd.conf.d/collectd-ceilometer-plugin.conf':
     ensure => file,
     content => template('barometer/collectd.conf.erb'), 
   }
