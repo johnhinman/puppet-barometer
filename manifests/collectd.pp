@@ -26,6 +26,10 @@ class barometer::collectd (
     ensure => file,
     content => template('barometer/ovs.conf.erb'),
   }
+  file { '/etc/ld.so.conf.d/pqos.conf':
+    ensure => file,
+    content => template('barometer/pqos.conf.erb'),
+  }
   service { 'collectd':
     ensure => 'running',
     enable => true,
