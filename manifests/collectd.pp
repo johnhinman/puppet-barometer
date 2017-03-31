@@ -2,7 +2,7 @@
 # Collectd service start 
 
 class barometer::collectd (
-  $public_url = barometer::collectd::public_url,
+  $auth_uri = barometer::collectd::auth_uri,
   $collectd_username = barometer::collectd::collectd_username,
   $collectd_password = barometer::collectd::collectd_password,
 ) {
