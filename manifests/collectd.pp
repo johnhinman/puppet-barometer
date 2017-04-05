@@ -6,6 +6,13 @@ class barometer::collectd (
   $collectd_username = barometer::collectd::collectd_username,
   $collectd_password = barometer::collectd::collectd_password,
 ) {
+  file { '/etc/collectd.conf':
+    ensure => present,
+  }->
+  file_line { 'Append path to ceilometer plugin':
+    path => '/etc/collectd.conf',
+    content => inline_template('<%='<Include "/etc/collectd/collectd.conf.d">\n  Filter "*.conf"\n</Include>'%>'),
+  }
   file { '/etc/collectd/collectd.conf.d/collectd-ceilometer-plugin.conf':
     ensure => file,
     content => template('barometer/collectd.conf.erb'), 
