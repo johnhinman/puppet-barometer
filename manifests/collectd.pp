@@ -11,7 +11,7 @@ class barometer::collectd (
   }->
   file_line { 'Append path to ceilometer plugin':
     path => '/etc/collectd.conf',
-    content => inline_template('<%='<Include "/etc/collectd/collectd.conf.d">\n  Filter "*.conf"\n</Include>'%>'),
+    content => inline_template('<%="<Include \"/etc/collectd/collectd.conf.d\">\n  Filter \"*.conf\"\n</Include>"%>'),
   }
   file { '/etc/collectd/collectd.conf.d/collectd-ceilometer-plugin.conf':
     ensure => file,
