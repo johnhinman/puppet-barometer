@@ -6,15 +6,15 @@ class barometer::collectd (
   $collectd_username = barometer::collectd::collectd_username,
   $collectd_password = barometer::collectd::collectd_password,
 ) {
-  file { '/etc/collectd-ceil.conf.erb':
+  file { '/etc/collectd/collectd.conf.d/collectd-ceilometer-plugin.conf':
     ensure => file,
     content => template('barometer/collectd-ceil.conf.erb'),
   }
-  file { '/etc/logfile.conf.erb':
+  file { '/etc/collectd/collectd.conf.d/logfile.conf.erb':
     ensure => file,
     content => template('barometer/logfile.conf.erb'),
   }
-  file { '/etc/collectd/collectd.conf.d/collectd-ceilometer-plugin.conf':
+  file { '/etc/collectd.conf':
     ensure => file,
     content => template('barometer/collectd.conf.erb'), 
   }
