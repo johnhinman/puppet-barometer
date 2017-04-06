@@ -10,6 +10,10 @@ class barometer::collectd (
     ensure => file,
     content => template('barometer/collectd-ceil.conf.erb'),
   }
+  file { '/etc/logfile.conf.erb':
+    ensure => file,
+    content => template('barometer/logfile.conf.erb'),
+  }
   file { '/etc/collectd/collectd.conf.d/collectd-ceilometer-plugin.conf':
     ensure => file,
     content => template('barometer/collectd.conf.erb'), 
