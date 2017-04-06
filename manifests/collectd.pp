@@ -38,14 +38,14 @@ class barometer::collectd (
     ensure => file,
     content => template('barometer/pqos.conf.erb'),
   }
-  service { 'collectd':
-    ensure => 'running',
-    enable => true,
-  }
+#  service { 'collectd':
+#    ensure => 'running',
+#    enable => true,
+#  }
   # debug only, remove this
-  exec { 'show collectd status':
-    path => '/usr/sbin',
-    command => 'service collectd status > /etc/collectd/collectd-status',
-  }
+#  exec { 'show collectd status':
+#    path => '/usr/sbin',
+#    command => 'service collectd status > /etc/collectd/collectd-status',
+#  }
 }
 
