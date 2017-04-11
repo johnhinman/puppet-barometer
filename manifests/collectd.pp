@@ -2,7 +2,7 @@
 # Collectd service start 
 
 class barometer::collectd (
-  $auth_uri = barometer::collectd::auth_uri,
+  $auth_url = barometer::collectd::auth_url,
   $collectd_username = barometer::collectd::collectd_username,
   $collectd_password = barometer::collectd::collectd_password,
 ) {
@@ -22,14 +22,14 @@ class barometer::collectd (
     ensure => file,
     content => template('barometer/hugepages.conf.erb'),
   }
-#  file { '/etc/collectd/collectd.conf.d/mcelog.conf':
-#    ensure => file,
-#    content => template('barometer/mcelog.conf.erb'),
-#  }
-#  file { '/etc/mcelog/mcelog.conf':
-#    ensure => file,
-#    content => template('barometer/mcelog-client.conf.erb'),
-#  }
+  file { '/etc/collectd/collectd.conf.d/mcelog.conf':
+    ensure => file,
+    content => template('barometer/mcelog.conf.erb'),
+  }
+  file { '/etc/mcelog/mcelog.conf':
+    ensure => file,
+    content => template('barometer/mcelog-client.conf.erb'),
+  }
   file { '/etc/collectd/collectd.conf.d/ovs.conf':
     ensure => file,
     content => template('barometer/ovs.conf.erb'),
@@ -38,14 +38,9 @@ class barometer::collectd (
     ensure => file,
     content => template('barometer/pqos.conf.erb'),
   }
-#  service { 'collectd':
-#    ensure => 'running',
-#    enable => true,
-#  }
-  # debug only, remove this
-#  exec { 'show collectd status':
-#    path => '/usr/sbin',
-#    command => 'service collectd status > /etc/collectd/collectd-status',
-#  }
+  service { 'collectd':
+    ensure => 'running',
+    enable => true,
+  }
 }
 
