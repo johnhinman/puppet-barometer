@@ -1,5 +1,6 @@
 # == Class: ::barometer::collectd
-# Collectd service start 
+# Add configuration files for all components.
+# Start collectd service 
 
 class barometer::collectd (
   $auth_url = barometer::collectd::auth_url,
@@ -9,6 +10,10 @@ class barometer::collectd (
   file { '/etc/collectd/collectd.conf.d/collectd-ceilometer-plugin.conf':
     ensure => file,
     content => template('barometer/collectd-ceil.conf.erb'),
+  }
+  file { '/etc/collectd/collectd.conf.d/intel_rdt.conf':
+    ensure => file,
+    content => template('barometer/intel_rdt.conf.erb'),
   }
   file { '/etc/collectd/collectd.conf.d/logfile.conf':
     ensure => file,
@@ -34,6 +39,7 @@ class barometer::collectd (
     ensure => file,
     content => template('barometer/ovs.conf.erb'),
   }
+  # Add path to libpqos
   file { '/etc/ld.so.conf.d/pqos.conf':
     ensure => file,
     content => template('barometer/pqos.conf.erb'),
