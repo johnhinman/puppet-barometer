@@ -58,9 +58,9 @@ class barometer::collectd (
     ensure => file,
     content => template('barometer/pqos.conf.erb'),
   }
-  service { 'collectd':
-    ensure => 'running',
-    enable => true,
-  }
+#  service { 'collectd':
+#    ensure => 'running',
+#    enable => true,
+#  }
 }
 
