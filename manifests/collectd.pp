@@ -29,7 +29,7 @@ class barometer::collectd (
     ensure => file,
     content => template('barometer/intel_rdt.conf.erb'),
   }
-  file { '/etc/collectd/collectd.conf.d/logfile.conf':
+  file { '/etc/collectd/collectd.conf.d/01-logfile.conf':
     ensure => file,
     content => template('barometer/logfile.conf.erb'),
   }
