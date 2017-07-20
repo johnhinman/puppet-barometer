@@ -25,7 +25,7 @@ class barometer::collectd (
     ensure => file,
     content => template('barometer/collectd-ceil.conf.erb'),
   }
-  file { '/etc/collectd/collectd.conf.d/intel_rdt.conf':
+  file { '/etc/collectd/collectd.conf.d/intel_rdt.conf_':
     ensure => file,
     content => template('barometer/intel_rdt.conf.erb'),
   }
@@ -58,9 +58,9 @@ class barometer::collectd (
     ensure => file,
     content => template('barometer/pqos.conf.erb'),
   }
-#  service { 'collectd':
-#    ensure => 'running',
-#    enable => true,
-#  }
+  service { 'collectd':
+    ensure => 'running',
+    enable => true,
+  }
 }
 
