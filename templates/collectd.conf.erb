@@ -196,7 +196,7 @@ LoadPlugin python
 #LoadPlugin redis
 ##LoadPlugin routeros
 #LoadPlugin rrdcached
-LoadPlugin rrdtool
+#LoadPlugin rrdtool
 #LoadPlugin sensors
 #LoadPlugin serial
 ##LoadPlugin sigrok
@@ -1202,8 +1202,8 @@ LoadPlugin rrdtool
 #	CollectStatistics true
 #</Plugin>
 
-<Plugin rrdtool>
-	DataDir "/var/lib/collectd/rrd"
+#<Plugin rrdtool>
+#	DataDir "/var/lib/collectd/rrd"
 #	CreateFilesAsync false
 #	CacheTimeout 120
 #	CacheFlush   900
