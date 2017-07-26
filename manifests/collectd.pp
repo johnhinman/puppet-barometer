@@ -58,6 +58,10 @@ class barometer::collectd (
     ensure => file,
     content => template('barometer/pqos.conf.erb'),
   }
+  service { 'mcelog':
+    ensure => 'running',
+    ensure => true,
+  }
   service { 'collectd':
     ensure => 'running',
     enable => true,
