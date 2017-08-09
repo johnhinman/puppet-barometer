@@ -25,11 +25,11 @@ class barometer::collectd (
     ensure => file,
     content => template('barometer/collectd-ceil.conf.erb'),
   }
-  file { '/etc/collectd/collectd.conf/aodh.conf':
+  file { '/etc/collectd/collectd.conf.d/aodh.conf':
     ensure => file,
-    content => template('barometer/aodh.conf.erb),
+    content => template('barometer/aodh.conf.erb'),
   }
-  file { '/etc/collectd/collectd.conf.d/intel_rdt.conf_':
+  file { '/etc/collectd/collectd.conf.d/intel_rdt.conf':
     ensure => file,
     content => template('barometer/intel_rdt.conf.erb'),
   }
@@ -62,9 +62,13 @@ class barometer::collectd (
     ensure => file,
     content => template('barometer/pqos.conf.erb'),
   }
+  exec { 'ovs-vsctl set-manager':
+    command => 'ovs-vsctl set-manager ptcp:6640',
+    path    => '/usr/bin',
+  }
   service { 'mcelog':
     ensure => 'running',
-    ensure => true,
+    enable => true,
   }
   service { 'collectd':
     ensure => 'running',

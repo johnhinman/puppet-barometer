@@ -19,7 +19,7 @@
 
 
 <Plugin python>
-    ModulePath "/opt/stack/collectd-ceilometer"
+    ModulePath "/opt/collectd-ceilometer"
     LogTraces true
     Interactive false
     Import "collectd_ceilometer.aodh.plugin"
@@ -46,7 +46,7 @@
 
         OS_USERNAME "<%=@collectd_username-%>"
 
-        OS_PASSWORD "<$=@collectd_password-%>"
+        OS_PASSWORD "<%=@collectd_password-%>"
 
         OS_TENANT_NAME "service"
 
