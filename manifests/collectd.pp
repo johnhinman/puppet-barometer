@@ -53,9 +53,13 @@ class barometer::collectd (
     ensure => file,
     content => template('barometer/mcelog-client.conf.erb'),
   }
-  file { '/etc/collectd/collectd.conf.d/ovs.conf':
+  file { '/etc/collectd/collectd.conf.d/ovs_events.conf':
     ensure => file,
-    content => template('barometer/ovs.conf.erb'),
+    content => template('barometer/ovs_events.conf.erb'),
+  }
+  file { '/etc/collectd/collectd.conf.d/ovs_stats.conf':
+    ensure => file,
+    content => template('barometer/ovs_stats.conf.erb'),
   }
   # Add path to libpqos
   file { '/etc/ld.so.conf.d/pqos.conf':
