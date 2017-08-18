@@ -23,7 +23,7 @@ class barometer::collectd (
 ) {
   file { '/etc/collectd/collectd.conf.d/collectd-ceilometer-plugin.conf':
     ensure => file,
-    content => template('barometer/collectd-ceil.conf.erb'),
+    content => template('barometer/collectd-gnocchi.conf.erb'),
   }
   file { '/etc/collectd/collectd.conf.d/aodh.conf':
     ensure => file,

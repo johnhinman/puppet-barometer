@@ -12,4 +12,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+[socket]
 socket-path = /var/run/mcelog-client
+
+[dimm]
+dimm-tracking-enabled = yes
+dmi-prepopulate = yes
+uc-error-threshold = 1 / 24h
+ce-error-threshold = 10 / 24h
+
+[socket]
+socket-tracking-enabled = yes
+mem-uc-error-threshold = 100 / 24h
+mem-ce-error-threshold = 100 / 24h
+mem-ce-error-log = yes
+
+[page]
+memory-ce-threshold = 10 / 24h
+memory-ce-log = yes
+memory-ce-action = soft
+
+[trigger]
+children-max = 2
+directory = /etc/mcelog
+
+
