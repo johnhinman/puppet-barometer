@@ -61,6 +61,10 @@ class barometer::collectd (
     ensure => file,
     content => template('barometer/ovs_stats.conf.erb'),
   }
+  file { '/etc/collectd/collectd.conf.d/snmp_agent.conf':
+    ensure => file,
+    content => template('barometer/snmp_agent.conf.erb'),
+  }
   # Add path to libpqos
   file { '/etc/ld.so.conf.d/pqos.conf':
     ensure => file,
@@ -69,6 +73,11 @@ class barometer::collectd (
   exec { 'ovs-vsctl set-manager':
     command => 'ovs-vsctl set-manager ptcp:6640',
     path    => '/usr/bin',
+  }
+  # start services
+  service { 'snmpd':
+    ensure => 'running',
+    enable => true,
   }
   service { 'mcelog':
     ensure => 'running',
