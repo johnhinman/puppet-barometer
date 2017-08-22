@@ -75,10 +75,10 @@ class barometer::collectd (
     path    => '/usr/bin',
   }
   # start services
-  service { 'snmpd':
-    ensure => 'running',
-    enable => true,
-  }
+#  service { 'snmpd':
+#    ensure => 'running',
+#    enable => true,
+#  }
   service { 'mcelog':
     ensure => 'running',
     enable => true,
